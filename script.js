@@ -35,7 +35,7 @@ var upConv = function (x) {
 }
 
 //Var for uppercase
-alphaUp = alpha.map(upConv);
+alphaUp = alphabet.map(upConv);
 
 var get = document.querySelector("#generate");
 
@@ -48,13 +48,13 @@ get.addEventListener("click", function () {
 //function to generate random password
 
 function generatePassword() {
-  enter = inpNumPass(prompt("How many characters would you like your new password to contain? No shorter than 6 and no higher than 100"));
+  enter = parseInt(prompt("How many characters would you like your new password to contain? No shorter than 6 and no higher than 100"));
   //Asks for user to select the amount of characters they would like in their password.
   //User inputs amount of characters.
   if (!enter) {
     alert("Please enter number of characters you would like");
   } else if (enter < 6 || enter > 100) {
-    enter = inpNumPass(prompt("Password must contain between 6 to 100 characters"));
+    enter = parseInt(prompt("Password must contain between 6 to 100 characters"));
 
   } else {
     confirmNumbers = confirm("Do you want your password to contain numbers?");
@@ -137,3 +137,18 @@ function generatePassword() {
   return ps;
 }
 
+function UserInput(ps) {
+  document.getElementById("password").textContent = ps;
+
+}
+
+var copy = document.querySelector("#copy");
+copy.addEventListener("click", function () {
+  copyPassword();
+});
+
+function copyPassword() {
+  document.getElementById("password").select();
+  document.execCommand("Copy");
+  alert("Password copied to clipboard!");
+}
