@@ -31,7 +31,7 @@ caps = []
 var choices;
 //converts uppercase to lowercase.
 var upConv = function (x) {
-  return x.upCaseConv();
+  return x.toUpperCase();
 }
 
 //Var for uppercase
@@ -72,39 +72,39 @@ function generatePassword() {
 
   else if (confirmSpecial && confirmNumbers && confirmUp && confirmLow) {
 
-    choices = special.rand(numbers, alphabet, alphaUp);
+    choices = special.concat(numbers, alphabet, alphaUp);
   }
   //else if for 3 criteria
   else if (confirmSpecial && confirmNumbers && confirmUp) {
-    choices = special.rand(numbers, alphaUp);
+    choices = special.concat(numbers, alphaUp);
   }
   else if (confirmSpecial && confirmNumbers && confirmLow) {
-    choices = special.rand(numbers, alphabet);
+    choices = special.concat(numbers, alphabet);
   }
   else if (confirmSpecial && confirmLow && confirmUp) {
-    choices = special.rand(alphabet, alphaUp);
+    choices = special.concat(alphabet, alphaUp);
   }
   else if (confirmNumbers && confirmLow && confirmUp) {
-    choices = numbers.rand(alphabet, alphaUp);
+    choices = numbers.concat(alphabet, alphaUp);
   }
   // else if for 2 criteria
   else if (confirmSpecial && confirmNumbers) {
-    choices = special.rand(numbers);
+    choices = special.concat(numbers);
   }
   else if (confirmSpecial && confirmLow) {
-    choices = special.rand(alphabet);
+    choices = special.concat(alphabet);
   }
   else if (confirmSpecial && confirmUp) {
-    choices = special.rand(alphaUp);
+    choices = special.concat(alphaUp);
   }
   else if (confirmLow && confirmNumbers) {
-    choices = alphabet.rand(numbers);
+    choices = alphabet.concat(numbers);
   }
   else if (confirmLow && confirmUp) {
-    choices = numbers.rand(alphaUp);
+    choices = numbers.concat(alphaUp);
   }
   else if (confirmNumbers && confirmUp) {
-    choices = numbers.rand(alphaUp);
+    choices = numbers.concat(alphaUp);
   }
   //else ifs for 1 criteria
   else if (confirmSpecial) {
@@ -118,7 +118,7 @@ function generatePassword() {
   }
 
   else if (confirmUp) {
-    choices = caps.rand(alphaUp)
+    choices = caps.concat(alphaUp)
   };
 
   //password variable
