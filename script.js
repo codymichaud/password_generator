@@ -1,17 +1,5 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
-var copyBtn = document.querySelector("#copyButton");
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-copyButton.addEventListener("click", copyPassword);
 
 var enter;
 var confirmNumbers;
@@ -123,16 +111,16 @@ function generatePassword() {
 
   //password variable
 
-  var specPassword = {}
+  var password = []
 
-  //random selector for vars
+  //random char selector for password
 
   for (var i = 0; i < enter; i++) {
-    var pickPass = choices[Math.floor(Math.random() * choices.length)];
-    specPassword.push(pickPass);
+    var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+    password.push(pickChoices); //pickPass
   }
 
-  var ps = specPassword.join("");
+  var ps = password.join("");
   UserInput(ps);
   return ps;
 }
@@ -141,12 +129,12 @@ function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
 }
-
+//var for copy button
 var copy = document.querySelector("#copy");
 copy.addEventListener("click", function () {
   copyPassword();
 });
-
+//function to copy new password
 function copyPassword() {
   document.getElementById("password").select();
   document.execCommand("Copy");
