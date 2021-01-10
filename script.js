@@ -113,7 +113,7 @@ function generatePassword() {
 
   var password = []
 
-  //random char selector for password
+  //random character selector for password
 
   for (var i = 0; i < enter; i++) {
     var pickChoices = choices[Math.floor(Math.random() * choices.length)];
@@ -129,8 +129,9 @@ function UserInput(ps) {
   document.getElementById("password").textContent = ps;
 
 }
-//var for copy button
-var copy = document.querySelector("#copy");
+//variable for copy button
+var copy = document.querySelector("#copyButton");
+
 copy.addEventListener("click", function () {
   copyPassword();
 });
