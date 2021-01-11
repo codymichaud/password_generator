@@ -10,6 +10,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: darkgray;
 }
  
 body {
@@ -40,6 +41,7 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  border-radius: 15px;
 }
 
 .card-header::after {
